@@ -4,4 +4,3 @@ dnspython
 pandas
 numpy
 ensure
-pytest
