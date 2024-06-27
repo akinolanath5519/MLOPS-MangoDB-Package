@@ -20,6 +20,7 @@ list_of_files = [
    "setup.cfg",
    "pyproject.toml",
    "tox.ini",
+   "test.py",
    "experiments/experiments.ipynb", 
 ]
 
