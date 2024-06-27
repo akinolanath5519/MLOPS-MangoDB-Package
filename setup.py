@@ -1,5 +1,9 @@
 from setuptools import setup, find_packages
 
+def get_requirements(file_name: str) -> list:
+    with open(file_name, 'r') as f:
+        return [line.strip() for line in f if line.strip() and not line.startswith('-e')]
+
 with open('README.md', 'r', encoding='utf-8') as f:
     long_description = f.read()
 
@@ -8,10 +12,6 @@ REPO_NAME = "MlopsMangoDBpackage"
 PKG_NAME = "mangoDBdatabaseautomation"
 AUTHOR_USER_NAME = "akinolanath5519"
 AUTHOR_EMAIL = "akinolanathaniel3026@gmail.com"
-
-def parse_requirements(filename):
-    with open(filename, 'r') as f:
-        return [line.strip() for line in f if line and not line.startswith('#')]
 
 setup(
     name=PKG_NAME,
@@ -27,5 +27,5 @@ setup(
     },
     package_dir={"": "src"},
     packages=find_packages(where="src"),
-    install_requires=parse_requirements("requirements_dev.txt"),
+    install_requires=get_requirements("requirements.txt"),
 )
